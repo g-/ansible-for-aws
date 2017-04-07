@@ -7,7 +7,7 @@
   tasks:
     - name: get vpc id
       command: "aws ec2 describe-vpcs --filters Name=tag:Name,Values={{ name }}
-               --query 'Vpcs[0].VpcId' --output text"
+               --query 'Vpcs[0].VpcId' --output text --region {{ region }}"
       register: vpcid
 
     - debug: var=vpcid.stdout
